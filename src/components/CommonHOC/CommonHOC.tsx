@@ -1,29 +1,21 @@
 import React from "react";
 import { MonthTable } from "../MonthTable/MonthTable";
-import { IList } from "../../modules";
+import { TListItem } from "../../modules";
+
+interface Props {
+    list: TListItem[];
+    mapper: (list: TListItem[]) => TListItem[]
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function commonHOC(Component: any) {
-
-    return class extends React.Component<IList, IList> {
-        constructor(props: IList) {
-            super(props);
-            this.state = {
-                list: [...this.props.list],
-            };
-        }
-
-        componentDidMount(): void {
-            console.log(this, this.props)
-        }
-
+    return class extends React.Component<Props> {
         render() {
-            console.log(this.state.list)
             return (
-                <Component {...this.state} />
+                <Component list={this.props.mapper(this.props.list)} />
             )
         }
     }
 }
 
-export const MonthTableHOC = commonHOC(MonthTable);
+export default commonHOC

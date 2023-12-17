@@ -1,5 +1,5 @@
 export type TListItem = {
-    type: string,
+    date: string,
     amount: number,
 }
 
