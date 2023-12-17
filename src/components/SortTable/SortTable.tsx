@@ -9,8 +9,8 @@ export function SortTable({ list }: IList) {
                     <th>Date</th>
                     <th>Amount</th>
                 </tr>
-                {list.map(item => (
-                    <tr>
+                {list.map((item, index) => (
+                    <tr key={index}>
                         <td>{item.date}</td>
                         <td>{item.amount}</td>
                     </tr>

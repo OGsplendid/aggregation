@@ -11,9 +11,9 @@ export function MonthTable({ list }: IList) {
                     <th>Month</th>
                     <th>Amount</th>
                 </tr>
-                {list.map(item => (
-                    <tr>
-                        <td>{item.month}</td>
+                {list.map((item, index) => (
+                    <tr key={index}>
+                        <td>{item.date}</td>
                         <td>{item.amount}</td>
                     </tr>
                 ))}

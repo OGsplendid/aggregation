@@ -9,9 +9,9 @@ export function YearTable(props) {
                     <th>Year</th>
                     <th>Amount</th>
                 </tr>
-                {props.list.map(item => (
-                    <tr>
-                        <td>{item.year}</td>
+                {props.list.map((item, key) => (
+                    <tr key={key}>
+                        <td>{item.date}</td>
                         <td>{item.amount}</td>
                     </tr>
                 ))}
